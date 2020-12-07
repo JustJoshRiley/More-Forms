@@ -77,8 +77,7 @@ animal_to_fact = {
 def animal_facts():
     """Show a form to choose an animal and receive facts."""
 
-    animal = request.args.get('animal')
-
+    animal = request.form.get('animal')
     context = {
         'animal_list': animal_to_fact.keys(),
         'animal_to_fact': animal_to_fact,
@@ -86,6 +85,7 @@ def animal_facts():
     }
 
     return render_template('animal_facts.html', **context)
+    
 
 
 ################################################################################

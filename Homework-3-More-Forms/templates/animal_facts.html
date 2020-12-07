@@ -14,23 +14,11 @@ Animal Facts
         <label>
             Which animal do you want facts on?
 
-            <!-- TODO: Use a for loop to show one option element for each 
-                animal. -->
                 <select name="animal">
                     {% for animal in animal_list %}
                     <option value= '{{animal}}'>{{ animal }}</option>
                     {% endfor %}
                 </select>
-            <!-- <select name="animal">
-                {%for animal in animal_list%}
-                    <option value="{{animal}}">{{animal}}</option>
-                {%endfor%} -->
-                <!-- <option value="koala">koala</option>
-                <option value="parrot">parrot</option>
-                <option value="mantis shrimp">mantis shrimp</option>
-                <option value="lion">lion</option>
-                <option value="narwhal">narwhal</option> -->
-            <!-- </select> -->
         </label>
 
         <input type="submit" value="Get Fact!">
@@ -42,12 +30,14 @@ Animal Facts
 
 <section id="form_results">
     <p>
-        Here is your animal fact:
+        Here is your {{ animal }} fact:
     </p>
     <p>
+        {% if animal != 'None' %}
         <em>
-            {{chosen_animal}} : {{chosen_fact}}
+            {{ animal_to_fact[animal] }}
         </em>
+        {%endif%}
     </p>
 </section>
 
