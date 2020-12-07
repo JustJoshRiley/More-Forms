@@ -77,21 +77,15 @@ animal_to_fact = {
 def animal_facts():
     """Show a form to choose an animal and receive facts."""
 
-    if request.method == "POST":
-        animal = request.form.get('animal')
-        context = {
-            'animal_list' : animal_to_fact,
-            'chosen_animal' : animal,
-            'chosen_fact' : animal_to_fact[animal]
-        }
-        return render_template('animal_facts.html', **context)
+    animal = request.args.get('animal')
 
     context = {
-            'animal_list' : '',
-            'chosen_animal' : '',
-            'chosen_fact' : ''
+        'animal_list': animal_to_fact.keys(),
+        'animal_to_fact': animal_to_fact,
+        'animal': animal
     }
-    return render_template('animal_facts.html')
+
+    return render_template('animal_facts.html', **context)
 
 
 ################################################################################

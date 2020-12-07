@@ -16,13 +16,21 @@ Animal Facts
 
             <!-- TODO: Use a for loop to show one option element for each 
                 animal. -->
-            <select name="animal">
-                <option value="koala">koala</option>
+                <select name="animal">
+                    {% for animal in animal_list %}
+                    <option value= '{{animal}}'>{{ animal }}</option>
+                    {% endfor %}
+                </select>
+            <!-- <select name="animal">
+                {%for animal in animal_list%}
+                    <option value="{{animal}}">{{animal}}</option>
+                {%endfor%} -->
+                <!-- <option value="koala">koala</option>
                 <option value="parrot">parrot</option>
                 <option value="mantis shrimp">mantis shrimp</option>
                 <option value="lion">lion</option>
-                <option value="narwhal">narwhal</option>
-            </select>
+                <option value="narwhal">narwhal</option> -->
+            <!-- </select> -->
         </label>
 
         <input type="submit" value="Get Fact!">
